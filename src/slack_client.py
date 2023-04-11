@@ -11,7 +11,7 @@ thread_ts = "1681200773.262709"
 
 # WebClient instantiates a client that can call API methods
 # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
-client = WebClient(token="xoxb-518476454566-5090106341458-IwYn3ipNiI6Os263vz2vSvUy")
+client = WebClient(token="xoxb-518476454566-5114381953984-ZTltDkk7lmgdzCi6OpoE7NZk")
 logger = logging.getLogger(__name__)
 
 
@@ -28,7 +28,8 @@ def send_image_to_thread(is_true, image_path):
                 channels=channel_id,
                 initial_comment="Here's my file :smile:",
                 file=image_path,
-                thread_ts=thread_ts)
+                thread_ts=thread_ts
+            )
             # Log the result
             # logger.info(result)
         except SlackApiError as e:
@@ -38,4 +39,4 @@ def send_image_to_thread(is_true, image_path):
 
 if __name__ == "__main__":
     # 例: 判定結果がTrueで、画像のパスが"images/230405_100556_image.png"の場合
-    send_image_to_thread(True, "images/230405_100556_image.png")
+    send_image_to_thread(True, "images/230411_203209_image.png")

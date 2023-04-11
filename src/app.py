@@ -20,14 +20,6 @@ def get_latest_file():
         print("There are not enough files in the directory.")
 
 if __name__ == '__main__':
-    # img1_path = 'images/230405_100556_image.png'
-    # img1_path = 'images/230405_101254_image.png'
-    # img2_path = 'images/230405_101243_image.png'
-
-    # if judge_image_difference(img1_path, img2_path):
-    #     print('The images are the same.')
-    # else:
-    #     print('The images are different.')
 
     while True:
         screenshot()
