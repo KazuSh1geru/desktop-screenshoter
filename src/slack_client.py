@@ -1,6 +1,7 @@
 import logging
 import os
 from dotenv import load_dotenv
+
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
@@ -29,7 +30,7 @@ def send_image_to_thread(is_true, image_path):
                 channels=CHANNEL_ID,
                 initial_comment="SNAP :camera:",
                 file=image_path,
-                thread_ts=THREAD_TS
+                thread_ts=THREAD_TS,
             )
             # Log the result
             logger.info(result)
@@ -37,6 +38,7 @@ def send_image_to_thread(is_true, image_path):
             print(f"Error: {e}")
     else:
         print("判定結果はFalseです。何もしません。")
+
 
 if __name__ == "__main__":
     # 例: 判定結果がTrueで、画像のパスが"images/230405_100556_image.png"の場合

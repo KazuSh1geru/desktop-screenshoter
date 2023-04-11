@@ -7,6 +7,7 @@ from slack_client import send_image_to_thread
 
 dir_path = "./images"  # ファイルが保存されているディレクトリのパス
 
+
 def get_latest_file():
     files = os.listdir(dir_path)  # ディレクトリ内のファイルのリストを取得
     files = [f for f in files if f.endswith(".png")]  # ".png"で終わるファイルのみを抽出
@@ -20,14 +21,14 @@ def get_latest_file():
     else:
         print("There are not enough files in the directory.")
 
-if __name__ == '__main__':
 
+if __name__ == "__main__":
     while True:
         screenshot()
         time.sleep(2)
         latest_file, second_latest_file = get_latest_file()
         if judge_image_difference(latest_file, second_latest_file):
-            print('The images are the same.')
+            print("The images are the same.")
         else:
-            print('The images are different.')
+            print("The images are different.")
             send_image_to_thread(True, latest_file)
