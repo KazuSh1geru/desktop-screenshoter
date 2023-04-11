@@ -24,8 +24,8 @@ def _image_difference(img1_path, img2_path):
     orb = cv2.ORB_create()
 
     # 特徴量の検出と記述子の計算
-    kp1, des1 = orb.detectAndCompute(img1_gray, None)
-    kp2, des2 = orb.detectAndCompute(img2_gray, None)
+    _, des1 = orb.detectAndCompute(img1_gray, None)
+    _, des2 = orb.detectAndCompute(img2_gray, None)
 
     # 特徴量のマッチング
     bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)

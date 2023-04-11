@@ -6,6 +6,7 @@ from slack_client import send_image_to_thread
 
 
 dir_path = "./images"  # ファイルが保存されているディレクトリのパス
+
 def get_latest_file():
     files = os.listdir(dir_path)  # ディレクトリ内のファイルのリストを取得
     files = [f for f in files if f.endswith(".png")]  # ".png"で終わるファイルのみを抽出
