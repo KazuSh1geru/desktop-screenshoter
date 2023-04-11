@@ -6,3 +6,11 @@
 - bot_tokenを記述
 - SnapBotアプリをチャンネルに招待する
 - thread_tsを指定する
+
+# TIPS
+
+簡易的なlint
+
+```
+$ zsh validate.sh
+```
