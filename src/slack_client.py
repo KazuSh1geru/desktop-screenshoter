@@ -8,9 +8,6 @@ from slack_sdk.errors import SlackApiError
 
 load_dotenv()
 
-CHANNEL_ID = "C040Z00A15L"
-THREAD_TS = "1681200773.262709"
-
 # WebClient instantiates a client that can call API methods
 # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
 client = WebClient(token=os.getenv("SLACK_BOT_TOKEN"))
@@ -27,10 +24,10 @@ def send_image_to_thread(is_true, image_path):
             # Call the files.upload method using the WebClient
             # Uploading files requires the `files:write` scope
             result = client.files_upload_v2(
-                channels=CHANNEL_ID,
-                initial_comment="SNAP :camera:",
+                channels=os.getenv("CHANNEL_ID"),
+                thread_ts=os.getenv("THREAD_TS"),
                 file=image_path,
-                thread_ts=THREAD_TS,
+                initial_comment="SNAP :camera:",
             )
             # Log the result
             logger.info(result)
