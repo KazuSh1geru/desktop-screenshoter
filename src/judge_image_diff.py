@@ -42,7 +42,7 @@ def _image_difference(img1_path, img2_path):
 
     return diff
 
-def _judge_diff(diff, threshold):
+def _judge_diff(diff, threshold=THRESHOLD):
     if diff < threshold:
         return True
     else:
@@ -50,8 +50,8 @@ def _judge_diff(diff, threshold):
 
 if __name__ == '__main__':
     # img1_path = 'images/230405_100556_image.png'
-    img1_path = 'images/230405_101254_image.png'
-    img2_path = 'images/230405_101243_image.png'
+    img1_path = 'images/230411_201027_image.png'
+    img2_path = 'images/230411_201048_image.png'
 
 
     diff = _image_difference(img1_path, img2_path)
