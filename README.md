@@ -11,5 +11,5 @@
 簡易的なlint
 
 ```
-$ zsh validate.sh
+$ make lint
 ```
