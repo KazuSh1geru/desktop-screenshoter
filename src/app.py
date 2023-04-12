@@ -25,6 +25,7 @@ def get_latest_file():
 def delete_file(file_path):
     os.remove(file_path)
 
+
 if __name__ == "__main__":
     while True:
         screenshot()
