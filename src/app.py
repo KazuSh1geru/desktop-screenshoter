@@ -22,6 +22,9 @@ def get_latest_file():
         print("There are not enough files in the directory.")
 
 
+def delete_file(file_path):
+    os.remove(file_path)
+
 if __name__ == "__main__":
     while True:
         screenshot()
@@ -29,6 +32,7 @@ if __name__ == "__main__":
         latest_file, second_latest_file = get_latest_file()
         if judge_image_difference(latest_file, second_latest_file):
             print("The images are the same.")
+            delete_file(latest_file)
         else:
             print("The images are different.")
             send_image_to_thread(True, latest_file)
