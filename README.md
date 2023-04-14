@@ -12,7 +12,6 @@ $ make setup
 ```
 
 送りたいスレッドの準備 .env　ファイルの編集
-
 ```
 $ make env
 
