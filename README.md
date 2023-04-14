@@ -33,8 +33,12 @@ $ python src/app.py
 
 # TIPS
 
-簡易的なlint
+imagesの削除
+```
+$ make clean
+```
 
+簡易的なlint
 ```
 $ make lint
 ```
