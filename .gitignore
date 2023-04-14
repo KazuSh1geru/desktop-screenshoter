@@ -1,3 +1,5 @@
 .python-version
 .env
 images
+.DS_Store
+.venv*
