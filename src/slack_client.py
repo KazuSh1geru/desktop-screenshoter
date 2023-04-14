@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
+
 load_dotenv()
 
 # WebClient instantiates a client that can call API methods
