@@ -20,6 +20,7 @@ def get_latest_file():
         return HEADER + latest_file, HEADER + second_latest_file
     else:
         print("There are not enough files in the directory.")
+        return None, None
 
 
 def delete_file(file_path):
@@ -31,6 +32,8 @@ if __name__ == "__main__":
         screenshot()
         time.sleep(2)
         latest_file, second_latest_file = get_latest_file()
+        if latest_file is None or second_latest_file is None:
+            continue
         if judge_image_difference(latest_file, second_latest_file):
             print("The images are the same.")
             delete_file(latest_file)
