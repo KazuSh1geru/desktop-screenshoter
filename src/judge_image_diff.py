@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-THRESHOLD = 10
+THRESHOLD = 8
 
 
 def judge_image_difference(img1_path, img2_path):

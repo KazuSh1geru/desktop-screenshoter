@@ -3,3 +3,4 @@
 images
 .DS_Store
 .venv*
+src/__pycache__/*
