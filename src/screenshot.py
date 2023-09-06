@@ -10,10 +10,41 @@ screencapture -l <display_id> screen.png
 """
 
 import os
+import pyautogui
+import datetime
+import platform
 
 
 def screenshot():
     os.makedirs("images", exist_ok=True)
-    os.system(
-        'screencapture -x -o -R0,0,1680,1080 ./images/$(date "+%y%m%d_%H%M%S")_image.png'
-    )
+    if _is_mac_os():
+        os.system(
+            'screencapture -x -o -R0,0,1680,1080 ./images/$(date "+%y%m%d_%H%M%S")_image.png'
+        )
+    # windowsの場合
+    else:
+        try:
+            # スクリーンショットを取得
+            screenshot = pyautogui.screenshot()
+            # ファイル名を生成
+            filename = (
+                "./images/"
+                + datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+                + "_image.png"
+            )
+            # 画像を保存
+            screenshot.save(filename)
+        except Exception as e:
+            print(e)
+            print("screenshot error")
+
+
+def _is_mac_os():
+    return platform.system() == "Darwin"
+
+
+if __name__ == "__main__":
+    if _is_mac_os():
+        print("This is a Mac OS environment.")
+    else:
+        print("This is not a Mac OS environment.")
