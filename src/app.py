@@ -39,4 +39,4 @@ if __name__ == "__main__":
             delete_file(latest_file)
         else:
             print("The images are different.")
-            send_image_to_thread(True, latest_file)
+            send_image_to_thread(latest_file)
