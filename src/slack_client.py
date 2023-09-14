@@ -37,4 +37,4 @@ def send_image_to_thread(image_path):
 
 if __name__ == "__main__":
     # 例: 判定結果がTrueで、画像のパスが"images/230405_100556_image.png"の場合
-    send_image_to_thread(True, "images/230411_205449_image.png")
+    send_image_to_thread("images/230411_205449_image.png")
