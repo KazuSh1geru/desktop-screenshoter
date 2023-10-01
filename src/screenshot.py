@@ -11,16 +11,18 @@ screencapture -l <display_id> screen.png
 
 import os
 import pyautogui
-import datetime
+import subprocess
+from datetime import datetime
 import platform
 
 
 def screenshot():
     os.makedirs("images", exist_ok=True)
     if _is_mac_os():
-        os.system(
-            'screencapture -x -o -R0,0,1680,1080 ./images/$(date "+%y%m%d_%H%M%S")_image.png'
+        filename = "./images/{}_image.png".format(
+            datetime.now().strftime("%y%m%d_%H%M%S")
         )
+        subprocess.run(["screencapture", "-x", "-o", "-m", filename])
     # windowsの場合
     else:
         try:
@@ -44,7 +46,4 @@ def _is_mac_os():
 
 
 if __name__ == "__main__":
-    if _is_mac_os():
-        print("This is a Mac OS environment.")
-    else:
-        print("This is not a Mac OS environment.")
+    screenshot()
