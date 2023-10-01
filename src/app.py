@@ -1,7 +1,7 @@
 import os
 import time
 from judge_image_diff import judge_image_difference
-from screenshot import screenshot
+from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
 
 
@@ -29,7 +29,7 @@ def delete_file(file_path):
 
 if __name__ == "__main__":
     while True:
-        screenshot()
+        execute_screenshot()
         time.sleep(2)
         latest_file, second_latest_file = get_latest_file()
         if latest_file is None or second_latest_file is None:
