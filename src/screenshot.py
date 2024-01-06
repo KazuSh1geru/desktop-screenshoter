@@ -10,7 +10,7 @@ screencapture -l <display_id> screen.png
 """
 
 import os
-import subprocess
+from subprocess import run
 from datetime import datetime
 import pyautogui
 
@@ -37,7 +37,7 @@ def _screenshot() -> None:
 
 def _screenshot_with_macos() -> None:
     filename = _get_filename()
-    subprocess.run(["screencapture", "-x", "-o", "-m", filename])
+    run(["screencapture", "-x", "-o", "-m", filename])
 
 
 def _get_filename() -> str:

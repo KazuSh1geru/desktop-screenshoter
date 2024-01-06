@@ -8,5 +8,13 @@
     },
     "isort.args":["--profile", "black"],
     "pylint.args": ["--generate-members=cv2.*"],
-    "autoDocstring.docstringFormat": "google"
+    "autoDocstring.docstringFormat": "google",
+    "cSpell.words": [
+        "cv2",
+        "cvtColor",
+        "imread",
+        "imshow",
+        "imwrite",
+        "pyautogui"
+    ]
 }
