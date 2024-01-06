@@ -21,10 +21,8 @@ def send_image_to_thread(image_path):
     判定結果がTrueの場合は、画像をスレッドに送信します。
     """
     try:
-        # Call the files.upload method using the WebClient
-        # Uploading files requires the `files:write` scope
         result = client.files_upload_v2(
-            channels=os.getenv("CHANNEL_ID"),
+            channel=os.getenv("CHANNEL_ID"),
             thread_ts=os.getenv("THREAD_TS"),
             file=image_path,
             initial_comment="SNAP :camera:",
@@ -33,8 +31,3 @@ def send_image_to_thread(image_path):
         logger.info(result)
     except SlackApiError as e:
         print(f"Error: {e}")
-
-
-if __name__ == "__main__":
-    # 例: 判定結果がTrueで、画像のパスが"images/230405_100556_image.png"の場合
-    send_image_to_thread("images/230411_205449_image.png")

@@ -48,17 +48,3 @@ def _judge_diff(diff, threshold=THRESHOLD):
         return True
     else:
         return False
-
-
-if __name__ == "__main__":
-    # img1_path = 'images/230405_100556_image.png'
-    img1_path = "images/230411_201027_image.png"
-    img2_path = "images/230411_201048_image.png"
-
-    diff = _image_difference(img1_path, img2_path)
-    print(diff)
-
-    if _judge_diff(diff, threshold=THRESHOLD):
-        print("The images are the same.")
-    else:
-        print("The images are different.")
