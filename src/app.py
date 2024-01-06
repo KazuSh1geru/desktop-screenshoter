@@ -7,6 +7,7 @@ from slack_client import send_image_to_thread
 
 dir_path = "./images"  # スクリーンショットが保存されているディレクトリのパス
 
+
 def main():
     while True:
         execute_screenshot()
@@ -24,7 +25,9 @@ def main():
 
 def _get_latest_screenshot():
     screenshots = os.listdir(dir_path)  # ディレクトリ内のスクリーンショットのリストを取得
-    screenshots = [f for f in screenshots if f.endswith(".png")]  # ".png"で終わるスクリーンショットのみを抽出
+    screenshots = [
+        f for f in screenshots if f.endswith(".png")
+    ]  # ".png"で終わるスクリーンショットのみを抽出
     screenshots = sorted(screenshots)  # スクリーンショット名を日付順にソート
 
     if len(screenshots) >= 2:
