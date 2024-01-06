@@ -10,12 +10,14 @@ screencapture -l <display_id> screen.png
 """
 
 import os
-import pyautogui
-import subprocess
+from subprocess import run
 from datetime import datetime
+import pyautogui
 
 
 def execute_screenshot() -> None:
+    """スクリーンショットを実行
+    """
     os.makedirs("images", exist_ok=True)
     try:
         # スクリーンショットを取得
@@ -35,7 +37,7 @@ def _screenshot() -> None:
 
 def _screenshot_with_macos() -> None:
     filename = _get_filename()
-    subprocess.run(["screencapture", "-x", "-o", "-m", filename])
+    run(["screencapture", "-x", "-o", "-m", filename])
 
 
 def _get_filename() -> str:

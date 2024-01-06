@@ -1,5 +1,7 @@
-import logging
+"""このモジュールは、Slackに画像を送信するための関数を提供します。"""
+
 import os
+import logging
 from dotenv import load_dotenv
 
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)

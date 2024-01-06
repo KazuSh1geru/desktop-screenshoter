@@ -1,3 +1,4 @@
+"""このモジュールは画像の差分有無を判定するモジュールです。"""
 import cv2
 import numpy as np
 
@@ -5,6 +6,15 @@ THRESHOLD = 8
 
 
 def judge_image_difference(img1_path, img2_path):
+    """画像の差分有無を判定する関数
+
+    Args:
+        img1_path (string): 比較対象の画像1
+        img2_path (string): 比較対象の画像2
+
+    Returns:
+        boolean: 差分有無
+    """
     diff = _image_difference(img1_path, img2_path)
     print(diff)
 
