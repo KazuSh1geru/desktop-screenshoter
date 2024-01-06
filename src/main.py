@@ -1,3 +1,4 @@
+"""このモジュールは、スクリーンショットを撮影し、スレッドに送信するmain関数部分です。"""""
 import os
 import time
 from judge_image_diff import judge_image_difference
@@ -5,10 +6,18 @@ from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
 
 
-dir_path = "./images"  # スクリーンショットが保存されているディレクトリのパス
+DIR_PATH = "./images"  # スクリーンショットが保存されているディレクトリのパス
 
 
 def main():
+    """
+    1. スクリーンショットを撮影する
+    2. スクリーンショットを2つ取得する
+    3. 2つのスクリーンショットを比較する
+    4. 2つのスクリーンショットが同じ場合は、最新のスクリーンショットを削除する
+    5. 2つのスクリーンショットが異なる場合は、最新のスクリーンショットをスレッドに送信する
+    6. 1に戻る
+    """
     while True:
         execute_screenshot()
         time.sleep(2)
@@ -24,7 +33,7 @@ def main():
 
 
 def _get_latest_screenshot():
-    screenshots = os.listdir(dir_path)  # ディレクトリ内のスクリーンショットのリストを取得
+    screenshots = os.listdir(DIR_PATH)  # ディレクトリ内のスクリーンショットのリストを取得
     screenshots = [
         f for f in screenshots if f.endswith(".png")
     ]  # ".png"で終わるスクリーンショットのみを抽出
@@ -35,9 +44,9 @@ def _get_latest_screenshot():
         second_latest_screenshot = screenshots[-2]  # 1つ前のスクリーンショットを取得
         HEADER = "./images/"
         return HEADER + latest_screenshot, HEADER + second_latest_screenshot
-    else:
-        print("There are not enough screenshots in the directory.")
-        return None, None
+    # if文が処理されなかった場合は、スクリーンショットが2つ以上存在しない
+    print("There are not enough screenshots in the directory.")
+    return None, None
 
 
 def _delete_screenshot(screenshot_path):

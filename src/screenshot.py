@@ -10,12 +10,14 @@ screencapture -l <display_id> screen.png
 """
 
 import os
-import pyautogui
 import subprocess
 from datetime import datetime
+import pyautogui
 
 
 def execute_screenshot() -> None:
+    """スクリーンショットを実行
+    """
     os.makedirs("images", exist_ok=True)
     try:
         # スクリーンショットを取得
