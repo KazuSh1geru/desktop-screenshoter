@@ -12,7 +12,10 @@ screencapture -l <display_id> screen.png
 import os
 from subprocess import run
 from datetime import datetime
+from logging import getLogger
 import pyautogui
+
+logger = getLogger(__name__)
 
 
 def execute_screenshot() -> None:
@@ -23,8 +26,8 @@ def execute_screenshot() -> None:
         # スクリーンショットを取得
         _screenshot()
     except Exception as e:
-        print(e)
-        print("screenshot error")
+        logger.debug(e)
+        logger.debug("screenshot error")
 
 
 def _screenshot() -> None:

@@ -3,6 +3,7 @@
 import os
 import logging
 from dotenv import load_dotenv
+from logging import getLogger
 
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
@@ -32,4 +33,4 @@ def send_image_to_thread(image_path):
         # Log the result
         logger.info(result)
     except SlackApiError as e:
-        print(f"Error: {e}")
+        logger.debug(f"Error: {e}")
