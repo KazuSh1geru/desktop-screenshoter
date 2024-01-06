@@ -1,7 +1,8 @@
 """このモジュールは、スクリーンショットを撮影し、スレッドに送信するmain関数部分です。"""""
 import os
+import json
 import time
-from logging import getLogger
+from logging import getLogger, config
 from judge_image_diff import judge_image_difference
 from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
@@ -9,6 +10,10 @@ from slack_client import send_image_to_thread
 
 DIR_PATH = "./images"  # スクリーンショットが保存されているディレクトリのパス
 
+with open("./log_config.json", "r") as f:
+    log_conf = json.load(f)
+
+config.dictConfig(log_conf)
 logger = getLogger(__name__)
 
 
