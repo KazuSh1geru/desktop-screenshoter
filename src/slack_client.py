@@ -22,7 +22,7 @@ def send_image_to_thread(image_path):
     """
     try:
         result = client.files_upload_v2(
-            channels=os.getenv("CHANNEL_ID"),
+            channel=os.getenv("CHANNEL_ID"),
             thread_ts=os.getenv("THREAD_TS"),
             file=image_path,
             initial_comment="SNAP :camera:",
