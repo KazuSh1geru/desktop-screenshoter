@@ -40,7 +40,3 @@ def _screenshot_with_macos() -> None:
 
 def _get_filename() -> str:
     return "./images/{}_image.png".format(datetime.now().strftime("%y%m%d_%H%M%S"))
-
-
-if __name__ == "__main__":
-    execute_screenshot()
