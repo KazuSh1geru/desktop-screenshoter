@@ -6,7 +6,6 @@ screencapture ./images/$(date "+%y%m%d_%H%M%S")_image.png
 screencapture -o -R0,0,1650,1080 ./images/$(date "+%y%m%d_%H%M%S")_image.png
 # Select Display ID
 screencapture -l <display_id> screen.png
-
 """
 
 import os
@@ -19,8 +18,7 @@ logger = getLogger(__name__)
 
 
 def execute_screenshot() -> None:
-    """スクリーンショットを実行
-    """
+    """スクリーンショットを実行"""
     os.makedirs("images", exist_ok=True)
     try:
         # スクリーンショットを取得
