@@ -23,20 +23,25 @@
     },
 
     "loggers": {
-        "__main__": {
+        "src.__main__": {
             "level": "DEBUG",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
+            "propagate": true
         },
-        "same_hierarchy": {
+        "src.judge_image_diff": {
             "level": "DEBUG",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
+            "propagate": true
+        },
+        "src.slack_client": {
+            "level": "DEBUG",
+            "handlers": ["consoleHandler", "fileHandler"],
+            "propagate": true
         },
         "lower.sub": {
             "level": "DEBUG",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
+            "propagate": true
         }
     },
 

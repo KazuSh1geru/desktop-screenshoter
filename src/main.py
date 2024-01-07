@@ -3,6 +3,7 @@ import os
 import json
 import time
 from logging import getLogger, config
+# import logging
 from judge_image_diff import judge_image_difference
 from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
@@ -33,6 +34,7 @@ def main():
         if latest_screenshot is None or second_latest_screenshot is None:
             continue
         if judge_image_difference(latest_screenshot, second_latest_screenshot):
+            # logging.info("The images are the same.")
             logger.info("The images are the same.")
             _delete_screenshot(latest_screenshot)
         else:
@@ -53,6 +55,7 @@ def _get_latest_screenshot():
         HEADER = "./images/"
         return HEADER + latest_screenshot, HEADER + second_latest_screenshot
     # if文が処理されなかった場合は、スクリーンショットが2つ以上存在しない
+    # logger.info("There are not enough screenshots in the directory.")
     logger.info("There are not enough screenshots in the directory.")
     return None, None
 
