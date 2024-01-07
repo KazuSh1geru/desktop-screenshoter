@@ -4,7 +4,7 @@ import os
 import logging
 from dotenv import load_dotenv
 from logging import getLogger
-import logging
+# import logging
 
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
@@ -32,7 +32,7 @@ def send_image_to_thread(image_path):
             initial_comment="SNAP :camera:",
         )
         # Log the result
-        logging.info(result)
-        # logger.info(result)
+        # logging.info(result)
+        logger.info(f"Screenshot uploaded: {image_path}")
     except SlackApiError as e:
         logger.debug(f"Error: {e}")
