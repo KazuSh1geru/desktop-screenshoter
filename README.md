@@ -25,7 +25,7 @@ $ make env
 
 スクリーンショットの実行
 ```
-$ python src/app.py
+$ python src/main.py
 ```
 止めるときは「Ctrl + Cキーを押す」
 → これにより、実行中のプロセスが強制的に中断されます。
