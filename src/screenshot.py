@@ -22,10 +22,10 @@ def execute_screenshot() -> None:
     os.makedirs("images", exist_ok=True)
     try:
         # スクリーンショットを取得
+        # logger.info("execute screenshot")
         _screenshot()
     except Exception as e:
-        logger.debug(e)
-        logger.debug("screenshot error")
+        logger.debug("screenshot error: ", e)
 
 
 def _screenshot() -> None:
@@ -34,6 +34,7 @@ def _screenshot() -> None:
     filename = _get_filename()
     # 画像を保存
     screenshot.save(filename)
+    logger.info(f"screenshot saved: {filename}")
 
 
 def _screenshot_with_macos() -> None:

@@ -37,6 +37,11 @@
             "level": "INFO",
             "handlers": ["consoleHandler", "fileHandler"],
             "propagate": false
+        },
+        "screenshot": {
+            "level": "DEBUG",
+            "handlers": ["consoleHandler", "fileHandler"],
+            "propagate": false
         }
     },
 
