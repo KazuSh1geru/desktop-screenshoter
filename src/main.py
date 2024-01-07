@@ -1,12 +1,20 @@
-"""このモジュールは、スクリーンショットを撮影し、スレッドに送信するmain関数部分です。"""""
+"""このモジュールは、スクリーンショットを撮影し、スレッドに送信するmain関数部分です。"""
 import os
+import json
 import time
+from logging import getLogger, config
 from judge_image_diff import judge_image_difference
 from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
 
 
 DIR_PATH = "./images"  # スクリーンショットが保存されているディレクトリのパス
+
+with open("./log_config.json", "r") as f:
+    log_conf = json.load(f)
+
+config.dictConfig(log_conf)
+logger = getLogger(__name__)
 
 
 def main():
@@ -25,10 +33,10 @@ def main():
         if latest_screenshot is None or second_latest_screenshot is None:
             continue
         if judge_image_difference(latest_screenshot, second_latest_screenshot):
-            print("The images are the same.")
+            logger.info("The images are the same.")
             _delete_screenshot(latest_screenshot)
         else:
-            print("The images are different.")
+            logger.info("The images are different.")
             send_image_to_thread(latest_screenshot)
 
 
@@ -45,7 +53,7 @@ def _get_latest_screenshot():
         HEADER = "./images/"
         return HEADER + latest_screenshot, HEADER + second_latest_screenshot
     # if文が処理されなかった場合は、スクリーンショットが2つ以上存在しない
-    print("There are not enough screenshots in the directory.")
+    logger.info("There are not enough screenshots in the directory.")
     return None, None
 
 
