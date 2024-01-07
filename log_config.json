@@ -24,19 +24,19 @@
 
     "loggers": {
         "__main__": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": true
+            "propagate": false
         },
         "judge_image_diff": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": true
+            "propagate": false
         },
         "slack_client": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": true
+            "propagate": false
         }
     },
 
