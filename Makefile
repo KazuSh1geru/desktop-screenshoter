@@ -10,9 +10,6 @@ setup:
 		pip install -r requirements.txt
 
 
-SLACK_BOT_TOKEN := xoxb-<kusagiに確認>
-CHANNEL_ID := C01...  # チャンネルID
-THREAD_TS := 16812xxxxx.082xxx # スレッドID
 
 .env:
 	touch $@
