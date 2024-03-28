@@ -1,4 +1,4 @@
-# desktop_screenshoter
+# desktop-screenshoter
 
 スクショ業務に悩める全ての人へ
 
