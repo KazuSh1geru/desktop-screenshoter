@@ -1,10 +1,19 @@
 clean:
 	rm -r images/*
 
-lint:
-	zsh validate.sh
+.PHONY: ci
+ci: install
 
-setup:
-	python -m venv .venv
-	. .venv/bin/activate && \
-		pip install -r requirements.txt
+.PHONY: install
+install:
+	poetry install
+
+format:
+	poetry run black src
+	poetry run ruff check src --fix-only --unsafe-fixes
+
+.PHONY: lint
+lint:
+	# Python
+	poetry run black src --check
+	poetry run ruff check src

@@ -1,13 +1,13 @@
 """このモジュールは、Slackに画像を送信するための関数を提供します。"""
 
 import os
-from dotenv import load_dotenv
 from logging import getLogger
+
+from dotenv import load_dotenv
 
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
-
 
 load_dotenv()
 
@@ -17,9 +17,8 @@ client = WebClient(token=os.getenv("SLACK_BOT_TOKEN"))
 logger = getLogger(__name__)
 
 
-def send_image_to_thread(image_path):
-    """
-    与えられた判定結果と画像を使用して、スレッドに画像を送信する関数。
+def send_image_to_thread(image_path) -> None:
+    """与えられた判定結果と画像を使用して、スレッドに画像を送信する関数。
     判定結果がTrueの場合は、画像をスレッドに送信します。
     """
     try:
