@@ -1,25 +1,20 @@
 """このモジュールは、スクリーンショットを撮影し、スレッドに送信するmain関数部分です。"""
+
 import os
-import json
 import time
-from logging import getLogger, config
+
+from init_logger import init_logger
 from judge_image_diff import judge_image_difference
 from screenshot import execute_screenshot
 from slack_client import send_image_to_thread
 
-
 DIR_PATH = "./images"  # スクリーンショットが保存されているディレクトリのパス
 
-with open("./log_config.json", "r") as f:
-    log_conf = json.load(f)
-
-config.dictConfig(log_conf)
-logger = getLogger(__name__)
+logger = init_logger()
 
 
-def main():
-    """
-    1. スクリーンショットを撮影する
+def main() -> None:
+    """1. スクリーンショットを撮影する
     2. スクリーンショットを2つ取得する
     3. 2つのスクリーンショットを比較する
     4. 2つのスクリーンショットが同じ場合は、最新のスクリーンショットを削除する
@@ -40,8 +35,10 @@ def main():
             send_image_to_thread(latest_screenshot)
 
 
-def _get_latest_screenshot():
-    screenshots = os.listdir(DIR_PATH)  # ディレクトリ内のスクリーンショットのリストを取得
+def _get_latest_screenshot() -> tuple[str, str] | tuple[None, None]:
+    screenshots = os.listdir(
+        DIR_PATH,
+    )  # ディレクトリ内のスクリーンショットのリストを取得
     screenshots = [
         f for f in screenshots if f.endswith(".png")
     ]  # ".png"で終わるスクリーンショットのみを抽出
@@ -57,7 +54,7 @@ def _get_latest_screenshot():
     return None, None
 
 
-def _delete_screenshot(screenshot_path):
+def _delete_screenshot(screenshot_path) -> None:
     os.remove(screenshot_path)
 
 

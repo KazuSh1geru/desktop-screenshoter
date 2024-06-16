@@ -1,5 +1,4 @@
-"""
-screencapture ./images/$(date "+%y%m%d_%H%M%S")_image.png
+"""screencapture ./images/$(date "+%y%m%d_%H%M%S")_image.png
 
 # 背景しか写らないので、-Rオプションをつける
 # -x: 消音
@@ -9,12 +8,13 @@ screencapture -l <display_id> screen.png
 """
 
 import os
-from subprocess import run
 from datetime import datetime
-from logging import getLogger
-import pyautogui
+from subprocess import run
 
-logger = getLogger(__name__)
+import pyautogui
+from init_logger import init_logger
+
+logger = init_logger()
 
 
 def execute_screenshot() -> None:
@@ -23,7 +23,8 @@ def execute_screenshot() -> None:
     try:
         # スクリーンショットを取得
         # logger.info("execute screenshot")
-        _screenshot()
+        # _screenshot()  # debugできてないのでコメントアウト
+        _screenshot_with_macos()
     except Exception as e:
         logger.debug("screenshot error: ", e)
 
@@ -39,7 +40,7 @@ def _screenshot() -> None:
 
 def _screenshot_with_macos() -> None:
     filename = _get_filename()
-    run(["screencapture", "-x", "-o", "-m", filename])
+    run(["screencapture", "-x", "-o", "-m", filename], check=False)
 
 
 def _get_filename() -> str:
