@@ -6,4 +6,4 @@ images
 src/__pycache__/
 __pycache__/
 develop/
-logger.txt
+logger.log

@@ -1,51 +1,40 @@
 {
-    "version": 1,
-    "disable_existing_loggers": false,
-    "formatters": {
-        "simple": {
-            "format": "%(asctime)s %(name)s:%(lineno)s %(funcName)s [%(levelname)s]: %(message)s"
-        }
-    },
-
-    "handlers": {
-        "consoleHandler": {
-            "class": "logging.StreamHandler",
-            "level": "INFO",
-            "formatter": "simple",
-            "stream": "ext://sys.stdout"
-        },
-        "fileHandler": {
-            "class": "logging.FileHandler",
-            "level": "INFO",
-            "formatter": "simple",
-            "filename": "logger.txt"
-        }
-    },
-
-    "loggers": {
-        "__main__": {
-            "level": "INFO",
-            "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
-        },
-        "judge_image_diff": {
-            "level": "INFO",
-            "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
-        },
-        "slack_client": {
-            "level": "INFO",
-            "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
-        },
-        "screenshot": {
-            "level": "DEBUG",
-            "handlers": ["consoleHandler", "fileHandler"],
-            "propagate": false
-        }
-    },
-
-    "root": {
-        "level": "INFO"
-    }
+	"version": 1,
+	"disable_existing_loggers": false,
+	"formatters": {
+		"simple": {
+			"format": "%(asctime)s %(name)s:%(lineno)s %(funcName)s [%(levelname)s]: %(message)s"
+		}
+	},
+	"handlers": {
+		"consoleHandler": {
+			"class": "logging.StreamHandler",
+			"level": "INFO",
+			"formatter": "simple",
+			"stream": "ext://sys.stdout"
+		},
+		"fileHandler": {
+			"class": "logging.FileHandler",
+			"level": "INFO",
+			"formatter": "simple",
+			"filename": "logger.log"
+		}
+	},
+	"loggers": {
+		"__main__": {
+			"level": "INFO",
+			"handlers": [
+				"consoleHandler",
+				"fileHandler"
+			],
+			"propagate": false
+		}
+	},
+	"root": {
+		"level": "INFO",
+		"handlers": [
+			"consoleHandler",
+			"fileHandler"
+		]
+	}
 }
