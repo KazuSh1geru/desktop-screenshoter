@@ -23,7 +23,8 @@ def execute_screenshot() -> None:
     try:
         # スクリーンショットを取得
         # logger.info("execute screenshot")
-        _screenshot()
+        # _screenshot()  # debugできてないのでコメントアウト
+        _screenshot_with_macos()
     except Exception as e:
         logger.debug("screenshot error: ", e)
 
