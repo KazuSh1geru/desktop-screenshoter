@@ -41,7 +41,7 @@ https://sample.slack.com/archives/C01D50TQJR5/p1681263649282189?thread_ts=168126
 
 # スクリーンショットの実行
 ```
-$ python src/main.py
+$ poetry run python src/main.py
 ```
 止めるときは「Ctrl + Cキーを押す」
 → これにより、実行中のプロセスが強制的に中断されます。
