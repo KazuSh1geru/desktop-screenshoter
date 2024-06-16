@@ -45,7 +45,7 @@ def _get_slack_client() -> WebClient:
     return WebClient(token=bot_token)
 
 
-def _get_target_info() -> tuple[str | None, str | None]:
+def _get_target_info() -> tuple[str, str]:
     channel_id = os.getenv("CHANNEL_ID")
     thread_ts = os.getenv("THREAD_TS")
     if channel_id is None or thread_ts is None:

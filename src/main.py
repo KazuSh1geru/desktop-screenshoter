@@ -35,7 +35,7 @@ def main() -> None:
             send_image_to_thread(latest_screenshot)
 
 
-def _get_latest_screenshot() -> tuple[str | None, str | None]:
+def _get_latest_screenshot() -> tuple[str, str] | tuple[None, None]:
     screenshots = os.listdir(
         DIR_PATH,
     )  # ディレクトリ内のスクリーンショットのリストを取得
