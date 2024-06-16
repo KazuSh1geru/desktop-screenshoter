@@ -23,9 +23,9 @@ $ nano .env
 
 下記のように、環境変数を記入する。
 ```
-SLACK_BOT_TOKEN := xoxb-... # Bot User OAuth Access Token
-CHANNEL_ID := C01...  # チャンネルID
-THREAD_TS := 16812xxxxx.082xxx # スレッドID
+SLACK_BOT_TOKEN = xoxb-... # Bot User OAuth Access Token
+CHANNEL_ID = C01...  # チャンネルID
+THREAD_TS = 16812xxxxx.082xxx # スレッドID
 ```
 
 ### 3. チャンネルID と スレッドIDを取得する
