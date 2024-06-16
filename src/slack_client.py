@@ -1,9 +1,9 @@
 """このモジュールは、Slackに画像を送信するための関数を提供します。"""
 
 import os
-from logging import getLogger
 
 from dotenv import load_dotenv
+from init_logger import init_logger
 
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
@@ -14,7 +14,7 @@ load_dotenv()
 # WebClient instantiates a client that can call API methods
 # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
 client = WebClient(token=os.getenv("SLACK_BOT_TOKEN"))
-logger = getLogger(__name__)
+logger = init_logger()
 
 
 def send_image_to_thread(image_path) -> None:

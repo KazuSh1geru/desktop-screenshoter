@@ -9,12 +9,12 @@ screencapture -l <display_id> screen.png
 
 import os
 from datetime import datetime
-from logging import getLogger
 from subprocess import run
 
 import pyautogui
+from init_logger import init_logger
 
-logger = getLogger(__name__)
+logger = init_logger()
 
 
 def execute_screenshot() -> None:
