@@ -1,10 +1,11 @@
 """このモジュールは画像の差分有無を判定するモジュールです。"""
 
+import os
 import cv2
 import numpy as np
 from init_logger import init_logger
 
-THRESHOLD = 8
+THRESHOLD = os.getenv("THRESHOLD", 8)
 
 logger = init_logger()
 
