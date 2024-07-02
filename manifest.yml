@@ -9,6 +9,7 @@ oauth_config:
     bot:
       - files:write
       - files:read
+      - chat:write
 settings:
   interactivity:
     is_enabled: true
