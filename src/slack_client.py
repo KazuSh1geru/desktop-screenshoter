@@ -33,7 +33,7 @@ def send_image_to_thread(image_path) -> None:
         # Log the result
         logger.info(f"Screenshot uploaded: {image_path}")
     except SlackApiError as e:
-        logger.debug(f"Error: {e}")
+        logger.info(f"Error: {e}")
     except Exception:
         raise
 
