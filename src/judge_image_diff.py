@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from init_logger import init_logger
 
-THRESHOLD = os.getenv("THRESHOLD", 8)
+THRESHOLD = float(os.getenv("THRESHOLD", 8))
 
 logger = init_logger()
 
