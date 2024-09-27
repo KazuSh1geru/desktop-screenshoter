@@ -1,3 +1,4 @@
+.PHONY: clean
 clean:
 	rm -r images/*
 
@@ -8,9 +9,14 @@ ci: install
 install:
 	poetry install
 
+.PHONY: format
 format:
 	poetry run black src
 	poetry run ruff check src --fix-only --unsafe-fixes
+
+.PHONY: screenshot
+screenshot:
+	poetry run python src/main.py
 
 .PHONY: lint
 lint:
